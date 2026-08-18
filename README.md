@@ -1,56 +1,117 @@
 # Solar & Wind Deployment Intelligence Platform
 
-An AI-powered geospatial intelligence platform that recommends optimal locations for solar and wind renewable energy projects by analyzing environmental, geographic, climatic, and infrastructure-related factors.
+An AI-powered geospatial platform for evaluating and managing potential **solar and wind energy project sites** using environmental, geographic, and infrastructure data.
 
-Built as an 8-week, 4-milestone project integrating machine learning, GIS tooling, and external environmental APIs.
+> **Status:** 🟢 Milestone 1 Complete · 🟡 Milestone 2 In Progress
 
-## Status
+## Overview
 
-🟢 **Milestone 1 complete** — Project Initialization, Design Process & Core Setup
-🔲 Milestone 2 — Environmental Intelligence & Resource Prediction (in progress)
-🔲 Milestone 3 — Site Intelligence & Optimization
-🔲 Milestone 4 — Analytics, Testing & Deployment
+The platform follows an end-to-end renewable energy site evaluation workflow:
 
-## What's implemented so far
+```text
+Authentication
+     ↓
+Project & Site Management
+     ↓
+Environmental & GIS Data
+     ↓
+Resource Prediction
+     ↓
+Site Suitability
+     ↓
+Deployment Recommendations
+```
 
-- JWT + OAuth2-style authentication
-- Role-based access control (Renewable Energy Planner, GIS Analyst, Project Manager, Administrator)
-- Project & site management with PostGIS-backed geospatial data
-- Full registration + login flow in the UI, with role selection
-- Dockerized multi-service architecture (Postgres+PostGIS, MongoDB, FastAPI backend, Next.js frontend)
+The current release focuses on the core platform, authentication, project/site management, and geospatial data infrastructure.
 
-## Tech stack
+## Tech Stack
 
-**Backend:** FastAPI, JWT + OAuth2, PostgreSQL + PostGIS (via GeoAlchemy2), MongoDB, Alembic
-**Frontend:** Next.js, React, Tailwind CSS
-**ML (upcoming milestones):** XGBoost, LightGBM, Random Forest, TensorFlow, PyTorch
-**GIS (upcoming milestones):** GDAL, Rasterio, GeoPandas, Shapely
-**External APIs (upcoming milestones):** NASA POWER, OpenWeather, Copernicus Sentinel Hub, OpenStreetMap
-**Visualization (upcoming milestones):** Plotly, Leaflet.js, Mapbox, Chart.js
-**Infrastructure:** Docker, Docker Compose
+| Layer            | Technology                   |
+| ---------------- | ---------------------------- |
+| Backend          | FastAPI, Python, JWT, OAuth2 |
+| Frontend         | Next.js, React, Tailwind CSS |
+| Database         | PostgreSQL, PostGIS, MongoDB |
+| ORM / Migrations | GeoAlchemy2, Alembic         |
+| Infrastructure   | Docker, Docker Compose       |
 
-## Getting started
+## Current Features
 
-See [SETUP.md](./SETUP.md) for full local setup instructions.
+* JWT + OAuth2-style authentication
+* Role-based access control
+* User registration and login
+* Renewable Energy Planner, GIS Analyst, Project Manager & Administrator roles
+* Project creation and management
+* Renewable energy site management
+* PostGIS-backed geospatial data
+* FastAPI REST API with Swagger documentation
+* Dockerized development environment
+* Next.js frontend integrated with the backend
 
-Quick start (requires Docker Desktop):
+## Project Structure
 
-\`\`\`bash
+```text
+solar-wind-deployment-intelligence/
+├── backend/
+│   ├── app/
+│   │   ├── api/
+│   │   ├── core/
+│   │   ├── models/
+│   │   ├── schemas/
+│   │   └── services/
+│   ├── alembic/
+│   └── Dockerfile
+│
+├── frontend/
+│   ├── app/
+│   ├── components/
+│   └── Dockerfile
+│
+├── docker-compose.yml
+├── SETUP.md
+└── README.md
+```
+
+## Roadmap
+
+* [x] Project initialization & core architecture
+* [x] Authentication & role-based access
+* [x] Project & site management
+* [x] PostgreSQL + PostGIS integration
+* [x] Dockerized environment
+* [ ] Environmental intelligence & resource prediction
+* [ ] GIS-based site suitability analysis
+* [ ] Site ranking & optimization
+* [ ] Analytics & deployment
+
+## Getting Started
+
+### Requirements
+
+* Docker Desktop
+* Git
+
+### Run
+
+```bash
+git clone https://github.com/Aadi-2k7/aditya-yadav.git
+cd aditya-yadav
+
 docker compose up --build postgres mongo backend
 docker compose exec backend alembic upgrade head
 docker compose up --build frontend
-\`\`\`
+```
 
-Then open:
-- `http://localhost:3000` — frontend
-- `http://localhost:8000/docs` — API docs (Swagger)
+### Access
 
-## Project structure
+* **Frontend:** http://localhost:3000
+* **API:** http://localhost:8000
+* **Swagger:** http://localhost:8000/docs
 
-\`\`\`
-.
-├── backend/          # FastAPI app, models, migrations
-├── frontend/          # Next.js app
-├── docker-compose.yml
-└── SETUP.md
-\`\`\`
+See [`SETUP.md`](SETUP.md) for detailed setup instructions.
+
+## Author
+
+**Aditya Yadav**
+B.Tech CSE — Data Science
+
+[GitHub](https://github.com/Aadi-2k7)
